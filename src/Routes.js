@@ -5,6 +5,7 @@ import Members from "./members/Members";
 import MemberPortfolio from "./members/MemberPortfolio";
 import Member from "./members/Member";
 import Portfolio from "./myspace/Portfolio";
+import ErrorPage from "./errorPage/ErrorPage"
 import PersonalDetails from "./myspace/PersonalDetails";
 import AdditionalInfo from "./myspace/AdditionalInfo";
 import PersonalBackground from "./myspace/PersonalBackground";
@@ -17,17 +18,17 @@ import Program from "./organizations/Program";
 import Register from "./register/Register";
 import Login from "./login/Login";
 import ProtectedRoute from "./ProtectedRoute";
-import Navigation from "./Navigation";
 import AuthProvider from "./AuthContext";
 import Programs from "./organizations/Programs";
 import About from "./home/About";
 import Benefit from "./home/Benefit"
+import Nav from "./Navigation"
 
 export default function Routes() {
   return (
     <Router>
+    <Nav/>
       <AuthProvider>
-        <Navigation />
         <Switch>
           <Route exact path="/">
             <Home />
@@ -86,6 +87,9 @@ export default function Routes() {
           </Route>
           <Route path="/login">
             <Login />
+          </Route>
+          <Route>
+            <ErrorPage />
           </Route>
         </Switch>
       </AuthProvider>
